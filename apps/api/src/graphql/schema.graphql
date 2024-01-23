@@ -4,5 +4,9 @@ type Email {
 }
 
 type Query {
+  hello(): String!
+}
+
+type Mutation {
   saveWaitlistEmail(email: String!): Boolean!
 }
