@@ -1,0 +1,20 @@
+name = "api"
+main = "src/index.ts"
+compatibility_date = "2023-12-18"
+node_compat = true
+
+[[d1_databases]]
+binding = "DB"
+database_name = "vaella-db"
+database_id = "$database_id"
+
+[env.development]
+[env.development.vars]
+  database_id = "$database_id"
+
+  [[env.development.d1_databases]]
+  binding = "DB"
+  database_name = "vaella-db"
+  database_id = "$database_id"
+
+

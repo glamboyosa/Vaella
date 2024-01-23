@@ -1,0 +1,8 @@
+type Email {
+  id: Int!
+  email: String!
+}
+
+type Query {
+  saveWaitlistEmail(email: String!): Boolean!
+}

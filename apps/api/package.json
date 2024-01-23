@@ -1,0 +1,21 @@
+{
+  "scripts": {
+    "dev": "wrangler dev src/index.ts --local --persist",
+    "deploy": "wrangler deploy --minify src/index.ts",
+    "generate": "drizzle-kit generate:sqlite --schema=src/schema.ts",
+    "up": "drizzle-kit up:sqlite --schema=src/schema.ts",
+    "init": "wrangler d1 execute vaella-db --local --file=./drizzle/0000_short_lockheed.sql"
+  },
+  "dependencies": {
+    "@graphql-tools/load-files": "^7.0.0",
+    "drizzle-orm": "^0.29.3",
+    "graphql": "^16.8.1",
+    "graphql-yoga": "^5.1.1",
+    "hono": "^3.11.7"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20231121.0",
+    "drizzle-kit": "^0.20.13",
+    "wrangler": "^3.15.0"
+  }
+}
