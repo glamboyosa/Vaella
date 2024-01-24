@@ -6,8 +6,11 @@ export type Bindings = {
   LOGGING: "debug" | "error" | "info" | "warn";
   DB: D1Database;
 };
-export type Context = Bindings &
-  ExecutionContext &
-  YogaInitialContext & {
-    db: DrizzleD1Database<Record<string, never>>;
-  };
+type Prettify<T> = T extends object ? { [K in keyof T]: T[K] } : T;
+export type Context = Prettify<
+  Bindings &
+    ExecutionContext &
+    YogaInitialContext & {
+      db: DrizzleD1Database<Record<string, never>>;
+    }
+>;
