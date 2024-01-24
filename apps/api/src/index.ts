@@ -4,7 +4,8 @@ import { createYoga, createSchema } from "graphql-yoga";
 import { drizzle } from "drizzle-orm/d1";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
-import { emailSchema } from "./schema";
+import { mutations } from "./graphql/mutation";
+import { queries } from "./graphql/query";
 
 const app = new Hono<{ Bindings: Bindings }>();
 
@@ -25,20 +26,10 @@ app.on(["POST", "GET"], "/graphql", async (c) =>
 
       resolvers: {
         Query: {
-          hello: () => "Hello world!",
+          ...queries,
         },
         Mutation: {
-          saveWaitlistEmail: async (
-            _,
-            { email }: { email: string },
-            ctx: Context
-          ) => {
-            const insertedMail = await ctx.db
-              .insert(emailSchema)
-              .values({ email })
-              .returning();
-            return insertedMail[0].email;
-          },
+          ...mutations,
         },
       },
     }),
