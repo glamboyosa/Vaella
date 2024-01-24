@@ -1,15 +1,10 @@
 import { Hono } from "hono";
-import { Context } from "../types";
+import { Bindings, Context } from "../types";
 import { createYoga, createSchema } from "graphql-yoga";
 import { drizzle } from "drizzle-orm/d1";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { emailSchema } from "./schema";
-type Bindings = {
-  NODE_ENV: string;
-  LOGGING: "debug" | "error" | "info" | "warn";
-  DB: D1Database;
-};
 
 const app = new Hono<{ Bindings: Bindings }>();
 
