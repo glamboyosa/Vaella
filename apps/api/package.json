@@ -1,7 +1,8 @@
 {
+  "name": "api",
   "scripts": {
-    "dev": "wrangler dev src/index.ts --local --persist",
-    "deploy": "wrangler deploy --minify src/index.ts",
+    "dev": "pnpm esbuild && wrangler dev src/index.ts --local",
+    "deploy": "pnpm esbuild && wrangler deploy --minify src/index.ts",
     "generate": "drizzle-kit generate:sqlite --schema=src/schema.ts",
     "up": "drizzle-kit up:sqlite --schema=src/schema.ts",
     "init": "wrangler d1 execute vaella-db --local --file=./drizzle/0000_short_lockheed.sql"

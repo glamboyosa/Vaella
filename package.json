@@ -1,5 +1,9 @@
 {
   "name": "vaella",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "private": true,
   "scripts": {
     "build": "turbo build",

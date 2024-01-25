@@ -11,6 +11,7 @@ database_id = "$database_id"
 [env.development]
 [env.development.vars]
   database_id = "$database_id"
+  LOGGING="debug"
 
   [[env.development.d1_databases]]
   binding = "DB"

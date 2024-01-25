@@ -1,8 +1,8 @@
 import { Hono } from "hono";
-import { Bindings, Context } from "../types";
+import { Bindings } from "../types";
 import { createYoga, createSchema } from "graphql-yoga";
 import { drizzle } from "drizzle-orm/d1";
-import { readFileSync } from "node:fs";
+import fs from "node:fs";
 import { join } from "node:path";
 import { mutations } from "./graphql/mutation";
 import { queries } from "./graphql/query";
@@ -19,7 +19,7 @@ app.on(["POST", "GET"], "/graphql", async (c) =>
     // add drizzle to context
     context: { db: drizzle(c.env.DB) },
     schema: createSchema({
-      typeDefs: readFileSync(
+      typeDefs: fs.readFileSync(
         join(__dirname, "./graphql/schema.graphql"),
         "utf-8"
       ),
