@@ -10,7 +10,7 @@ export function SubmitWaitlistButton() {
     <button
       aria-disabled={pending}
       type="submit"
-      className="w-1/2 px-3 h-8 flex items-center justify-center cursor-pointer py-1 rounded-md bg-white hover:bg-white/95 text-black"
+      className="w-1/2 px-3 h-8 flex items-center justify-center cursor-pointer py-1 rounded-md bg-white hover:bg-white/85 text-black"
     >
       {!pending ? (
         " Join Waitlist ☄️"
