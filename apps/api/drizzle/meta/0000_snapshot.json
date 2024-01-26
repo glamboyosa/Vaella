@@ -25,9 +25,7 @@
       "indexes": {
         "email_email_unique": {
           "name": "email_email_unique",
-          "columns": [
-            "email"
-          ],
+          "columns": ["email"],
           "isUnique": true
         }
       },

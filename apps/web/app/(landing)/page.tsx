@@ -1,9 +1,9 @@
 import HomeNav from "@/components/nav/home-nav";
+import { SubmitWaitlistButton } from "@/components/submit-button";
 import { SparklesCore } from "@/components/ui/sparkles";
+import WaitlistForm from "@/components/waitlist-form";
 import { silkScreen } from "@/lib/font";
 import { cn } from "@/lib/utils";
-import WaitlistForm from "@/components/waitlist-form";
-import { SubmitWaitlistButton } from "@/components/submit-button";
 
 export default function Page() {
   return (
@@ -24,21 +24,14 @@ export default function Page() {
         <h1
           className={cn(
             "md:text-7xl text-balance text-3xl lg:text-6xl font-bold text-center text-white",
-            silkScreen.className
+            silkScreen.className,
           )}
         >
           For when screaming into the void isn't enough,
         </h1>
         <h2 className="md:text-5xl text-pretty text-2xl lg:text-4xl  text-center text-white">
-          <p>
-            {" "}
-            Introducing Vaella , open-source, private by default, audio
-            rant-rooms.
-          </p>
-          <p>
-            {" "}
-            Set your agenda, create a room, invite your friends, bare your soul.
-          </p>
+          <p> Introducing Vaella , open-source, private by default, audio rant-rooms.</p>
+          <p> Set your agenda, create a room, invite your friends, bare your soul.</p>
         </h2>
       </div>
       <WaitlistForm>

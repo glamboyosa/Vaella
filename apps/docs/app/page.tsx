@@ -1,8 +1,8 @@
-import Image from "next/image";
+import { Button } from "@repo/ui/button";
 import { Card } from "@repo/ui/card";
 import { Code } from "@repo/ui/code";
+import Image from "next/image";
 import styles from "./page.module.css";
-import { Button } from "@repo/ui/button";
 
 function Gradient({
   conic,
@@ -46,8 +46,7 @@ const LINKS = [
   {
     title: "Deploy",
     href: "https://vercel.com/new",
-    description:
-      " Instantly deploy your Turborepo to a shareable URL with Vercel.",
+    description: " Instantly deploy your Turborepo to a shareable URL with Vercel.",
   },
 ];
 
