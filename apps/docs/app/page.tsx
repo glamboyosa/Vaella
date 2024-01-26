@@ -22,7 +22,7 @@ function Gradient({
         className,
       ]
         .filter(Boolean)
-        .join(" ")}
+        .join("")}
     />
   );
 }

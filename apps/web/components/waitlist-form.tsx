@@ -34,7 +34,7 @@ const WaitlistForm = ({ children }: PropsWithChildren) => {
   return (
     <form
       action={formAction}
-      className="mt-3.5 z-20 w-3/4 space-y-2.5 *:cursor-pointer flex flex-col items-center justify-center cursor-pointer"
+      className="z-20 mt-3.5 flex w-3/4 cursor-pointer flex-col items-center justify-center space-y-2.5 *:cursor-pointer"
     >
       <input
         name="email"
@@ -42,10 +42,10 @@ const WaitlistForm = ({ children }: PropsWithChildren) => {
         type="email"
         placeholder="Enter Email"
         className={cn(
-          "w-1/2 text-white flex h-9 rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
+          "flex h-9 w-1/2 rounded-md border border-input bg-transparent px-3 py-1 text-sm text-white shadow-sm transition-colors disabled:cursor-not-allowed file:border-0 file:bg-transparent file:font-medium file:text-sm placeholder:text-muted-foreground disabled:opacity-50 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring",
           state.errors?.email &&
             state.errors.email.length > 0 &&
-            "border-red-400 focus:border-input focus-visible:border-input"
+            "border-red-400 focus-visible:border-input focus:border-input",
         )}
       />
       {children}
