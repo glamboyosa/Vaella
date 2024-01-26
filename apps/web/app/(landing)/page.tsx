@@ -1,18 +1,11 @@
 import HomeNav from "@/components/nav/home-nav";
-import { Input } from "@/components/ui/input";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { silkScreen } from "@/lib/font";
 import { cn } from "@/lib/utils";
+import WaitlistForm from "@/components/waitlist-form";
+import { SubmitWaitlistButton } from "@/components/submit-button";
 
-function Page(): JSX.Element {
-  async function joinWaitlist(formData: FormData) {
-    "use server";
-
-    const email = formData.get("email");
-
-    // mutate data
-    // revalidate cache
-  }
+export default function Page() {
   return (
     <div className="h-screen relative w-full bg-black flex flex-col items-center justify-center overflow-hidden rounded-md">
       <div className="w-full absolute inset-0 h-screen">
@@ -48,26 +41,9 @@ function Page(): JSX.Element {
           </p>
         </h2>
       </div>
-      <form
-        action={joinWaitlist}
-        className="mt-3.5 w-3/4 space-y-2.5 *:cursor-pointer flex flex-col items-center justify-center cursor-pointer"
-      >
-        <input
-          name="email"
-          id="email"
-          type="email"
-          placeholder="Enter Email"
-          className="w-1/2 text-white   flex h-9   rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
-        />
-        <button
-          type="submit"
-          className="w-1/2 px-3 py-1 rounded-md bg-white text-black"
-        >
-          Join Waitlist
-        </button>
-      </form>
+      <WaitlistForm>
+        <SubmitWaitlistButton />
+      </WaitlistForm>
     </div>
   );
 }
-Page.theme = "dark";
-export default Page;
