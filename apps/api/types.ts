@@ -1,5 +1,6 @@
 import { DrizzleD1Database } from "drizzle-orm/d1";
 import { YogaInitialContext } from "graphql-yoga";
+import { z } from "zod";
 
 export type Bindings = {
   NODE_ENV: string;
@@ -14,3 +15,8 @@ export type Context = Prettify<
       db: DrizzleD1Database<Record<string, never>>;
     }
 >;
+export const emailSchema = z.object({
+  email: z.string().email("Invalid Email Address"),
+});
+
+export type joinWaitlistArgs = z.infer<typeof emailSchema>;

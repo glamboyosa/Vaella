@@ -12,7 +12,8 @@
     "drizzle-orm": "^0.29.3",
     "graphql": "^16.8.1",
     "graphql-yoga": "^5.1.1",
-    "hono": "^3.11.7"
+    "hono": "^3.11.7",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20231121.0",
