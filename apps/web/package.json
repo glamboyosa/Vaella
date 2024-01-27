@@ -9,6 +9,8 @@
     "lint": "eslint . --max-warnings 0"
   },
   "dependencies": {
+    "@apollo/client": "3.8.10",
+    "@apollo/experimental-nextjs-app-support": "^0.6.0",
     "@radix-ui/react-icons": "^1.3.0",
     "@repo/ui": "workspace:*",
     "@tsparticles/engine": "^3.1.0",

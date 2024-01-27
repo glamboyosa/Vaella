@@ -27,9 +27,10 @@ const WaitlistForm = ({ children }: PropsWithChildren) => {
       });
       playSound();
     } else if (state.errors?.email && state.errors.email.length > 0) {
-      toast.error(state.errors.email[0]);
+      const msg = state.errors.email[0];
+      toast.error(msg);
     }
-  }, [state, playSound]);
+  }, [state.message, state.errors.email[0], playSound]);
 
   return (
     <form
@@ -45,7 +46,7 @@ const WaitlistForm = ({ children }: PropsWithChildren) => {
           "flex h-9 w-1/2 rounded-md border border-input bg-transparent px-3 py-1 text-sm text-white shadow-sm transition-colors disabled:cursor-not-allowed file:border-0 file:bg-transparent file:font-medium file:text-sm placeholder:text-muted-foreground disabled:opacity-50 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring",
           state.errors?.email &&
             state.errors.email.length > 0 &&
-            "border-red-400 focus-visible:border-input focus:border-input",
+            "border-red-400 focus-visible:border-input focus:border-input"
         )}
       />
       {children}

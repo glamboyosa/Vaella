@@ -9,7 +9,7 @@ import { queries } from "./graphql/query";
 
 const app = new Hono<{ Bindings: Bindings }>();
 
-app.on(["POST", "GET"], "/graphql", async (c) =>
+app.on(["POST", "GET"], "/api/graphql", async (c) =>
   createYoga<Bindings & ExecutionContext>({
     logging: c.env.LOGGING,
     // `NODE_ENV` is under `c.env`
@@ -19,7 +19,10 @@ app.on(["POST", "GET"], "/graphql", async (c) =>
     // add drizzle to context
     context: { db: drizzle(c.env.DB) },
     schema: createSchema({
-      typeDefs: fs.readFileSync(join(__dirname, "./graphql/schema.graphql"), "utf-8"),
+      typeDefs: fs.readFileSync(
+        join(__dirname, "./graphql/schema.graphql"),
+        "utf-8"
+      ),
 
       resolvers: {
         Query: {
@@ -30,7 +33,7 @@ app.on(["POST", "GET"], "/graphql", async (c) =>
         },
       },
     }),
-  }).fetch(c.req.raw, c.env, c.executionCtx),
+  }).fetch(c.req.raw, c.env, c.executionCtx)
 );
 
 export default app;

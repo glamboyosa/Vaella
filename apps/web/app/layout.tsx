@@ -1,5 +1,6 @@
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
+import { ApolloWrapper } from "@/lib/apollo/apollo-wrapper";
 import { NBS } from "@/lib/font";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
@@ -18,15 +19,17 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={cn(NBS.className)}>
-        <ThemeProvider
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-          attribute="class"
-        >
-          <main>{children}</main>
-          <Toaster />
-        </ThemeProvider>
+        <ApolloWrapper>
+          <ThemeProvider
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+            attribute="class"
+          >
+            <main>{children}</main>
+            <Toaster />
+          </ThemeProvider>
+        </ApolloWrapper>
       </body>
     </html>
   );
