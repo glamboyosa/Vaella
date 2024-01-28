@@ -10,9 +10,9 @@ import {
 import { Tailwind } from "@react-email/tailwind";
 import * as React from "react";
 
-const baseUrl = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : "";
+const baseUrl = process.env.NODE_ENV
+  ? "https://vaella.glamboyosa.xyz"
+  : "http://localhost:3000";
 
 export const WaitlistWelcomeEmail = () => (
   <Html>
@@ -22,7 +22,7 @@ export const WaitlistWelcomeEmail = () => (
       <Body className="bg-white font-sans">
         <Container className="mx-auto p-4 pt-8 pb-6">
           <Img
-            src={`${baseUrl}/static/cat.svg`}
+            src={`${baseUrl}/icons/cat.svg`}
             width="170"
             height="50"
             alt="Vaella"

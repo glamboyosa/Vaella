@@ -44,7 +44,7 @@ const joinWaitlist = async (_: any, formData: FormData) => {
     })) as SaveWaitlistEmailData;
     await resend.emails.send({
       from: "Osa from Vaella <osa@glamboyosa.xyz>",
-      to: ["ogbemudiatimothy.com"],
+      to: ["ogbemudiatimothy@gmail.com"],
       subject: "Thank you for joining the waitlist!",
       react: WaitlistWelcomeEmail(),
     });
