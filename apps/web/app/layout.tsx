@@ -9,6 +9,17 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Vaella",
   description: "Private Audio Rant Rooms",
+  metadataBase: new URL("https://vaella.glamboyosa.xyz"),
+  openGraph: {
+    // eslint-disable-next-line turbo/no-undeclared-env-vars
+    images: [
+      "/og.png",
+      `${
+        // eslint-disable-next-line turbo/no-undeclared-env-vars
+        process.env.VERCEL_URL ? "/og.png" : `${process.env.VERCEL_URL}/api/og`
+      }`,
+    ],
+  },
 };
 
 export default function RootLayout({
