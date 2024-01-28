@@ -131,6 +131,9 @@ importers:
       '@tsparticles/slim':
         specifier: ^3.1.0
         version: 3.1.0
+      '@vercel/analytics':
+        specifier: ^1.1.2
+        version: 1.1.2
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.0
@@ -3498,6 +3501,12 @@ packages:
 
   /@ungap/structured-clone@1.2.0:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
+
+  /@vercel/analytics@1.1.2:
+    resolution: {integrity: sha512-CodhkLCQ/EHzjX8k+Qg+OzTBY0UadykrcfolfSOJVZZY/ZJM5nbhztm9KdbYvMfqKlasAr1+OYy0ThZnDA/MYA==}
+    dependencies:
+      server-only: 0.0.1
+    dev: false
 
   /@vercel/style-guide@5.1.0(eslint@8.56.0)(prettier@3.1.0)(typescript@5.2.2):
     resolution: {integrity: sha512-L9lWYePIycm7vIOjDLj+mmMdmmPkW3/brHjgq+nJdvMOrL7Hdk/19w8X583HYSk0vWsq494o5Qkh6x5+uW7ljg==}

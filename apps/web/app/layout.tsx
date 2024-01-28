@@ -3,6 +3,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { ApolloWrapper } from "@/lib/apollo/apollo-wrapper";
 import { NBS } from "@/lib/font";
 import { cn } from "@/lib/utils";
+import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -51,6 +52,7 @@ export default function RootLayout({
           >
             <main>{children}</main>
             <Toaster />
+            <Analytics />
           </ThemeProvider>
         </ApolloWrapper>
       </body>
