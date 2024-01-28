@@ -1,5 +1,3 @@
-import fs from "node:fs";
-import { join } from "node:path";
 import { drizzle } from "drizzle-orm/d1";
 import { createSchema, createYoga } from "graphql-yoga";
 import { Hono } from "hono";
@@ -15,14 +13,24 @@ app.on(["POST", "GET"], "/api/graphql", async (c) =>
     // `NODE_ENV` is under `c.env`
     maskedErrors: c.env.NODE_ENV === "production",
     // Keep as / so you're using just the hono route
-    graphqlEndpoint: "/",
+    graphqlEndpoint: "/api/graphql",
     // add drizzle to context
     context: { db: drizzle(c.env.DB) },
     schema: createSchema({
-      typeDefs: fs.readFileSync(
-        join(__dirname, "./graphql/schema.graphql"),
-        "utf-8"
-      ),
+      typeDefs: `
+      type Email {
+        id: Int!
+        email: String!
+      }
+      
+      type Query {
+        hello: String!
+      }
+      
+      type Mutation {
+        saveWaitlistEmail(email: String!): String!
+      }
+      `,
 
       resolvers: {
         Query: {

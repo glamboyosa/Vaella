@@ -17,12 +17,14 @@ const mutations = {
       );
     }
     try {
+      console.log(email, "eed");
       // check if mail exists
       const existingMail = await ctx.db
         .select()
         .from(emailSchema)
         .where(eq(emailSchema.email, email));
-      if (existingMail) {
+      console.log(existingMail, "EXIST");
+      if (existingMail && existingMail.length > 0) {
         return "Email exists";
       }
       const insertedMail = await ctx.db

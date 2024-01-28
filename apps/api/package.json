@@ -1,11 +1,12 @@
 {
   "name": "api",
   "scripts": {
-    "dev": "pnpm esbuild && pnpm run generate && wrangler dev src/index.ts --local",
+    "dev": "pnpm esbuild && pnpm run generate && wrangler dev src/index.ts --local --port=54681",
     "deploy": "pnpm esbuild && wrangler deploy --minify src/index.ts",
     "generate": "drizzle-kit generate:sqlite --schema=src/schema.ts",
     "up": "drizzle-kit up:sqlite --schema=src/schema.ts",
-    "init": "wrangler d1 execute vaella-db --local --file=./drizzle/0000_aromatic_iron_man.sql"
+    "init": "wrangler d1 execute vaella-db --local --file=./drizzle/0000_aromatic_iron_man.sql",
+    "init_prod": "wrangler d1 execute vaella-db --file=./drizzle/0000_aromatic_iron_man.sql"
   },
   "dependencies": {
     "@graphql-tools/load-files": "^7.0.0",
