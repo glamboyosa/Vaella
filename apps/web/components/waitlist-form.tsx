@@ -19,7 +19,8 @@ const WaitlistForm = ({ children }: PropsWithChildren) => {
     const audio = new Audio("/sounds/laser-swoosh.wav");
     await audio.play();
   }, []);
-  useEffect(() => {
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+useEffect(() => {
     if (state.message.length > 0 && Object.keys(state.errors).length === 0) {
       toast("Added to waitlist 🚀", {
         description: state.message,
@@ -30,7 +31,7 @@ const WaitlistForm = ({ children }: PropsWithChildren) => {
       const msg = state.errors.email[0];
       toast.error(msg);
     }
-  }, [state.message, state.errors.email[0], playSound]);
+  }, [state.message, state.errors, playSound]);
 
   return (
     <form
