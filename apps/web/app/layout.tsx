@@ -13,10 +13,10 @@ export const metadata: Metadata = {
   openGraph: {
     // eslint-disable-next-line turbo/no-undeclared-env-vars
     images: [
-      "/og.png",
+      "/og.jpg",
       `${
         // eslint-disable-next-line turbo/no-undeclared-env-vars
-        process.env.VERCEL_URL ? "/og.png" : `${process.env.VERCEL_URL}/api/og`
+        process.env.VERCEL_URL ? "/og.jpg" : `${process.env.VERCEL_URL}/api/og`
       }`,
     ],
   },

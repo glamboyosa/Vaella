@@ -42,6 +42,12 @@ const joinWaitlist = async (_: any, formData: FormData) => {
       mutation: mutation,
       variables: { email },
     })) as SaveWaitlistEmailData;
+    if (m.data.saveWaitlistEmail === "Email exists") {
+      return {
+        errors: {},
+        message: "Like the sound eh? 😉",
+      };
+    }
     await resend.emails.send({
       from: "Osa from Vaella <osa@glamboyosa.xyz>",
       to: [email as string],
@@ -50,10 +56,7 @@ const joinWaitlist = async (_: any, formData: FormData) => {
     });
     return {
       errors: {},
-      message:
-        m.data.saveWaitlistEmail === "Email exists"
-          ? "Like the sound eh? 😉"
-          : "Please check your email!",
+      message: "Please check your email!",
     };
   } catch (error: unknown) {
     const e = error as Array<{ message: string }>;
