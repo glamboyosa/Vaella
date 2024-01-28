@@ -54,7 +54,7 @@ And follow this guide to create a [D1 Database](https://developers.cloudflare.co
 Run the following command:
 
 ```bash
-cp .env.local.example .env.local
+cp .env.example .env.local
 ```
 
 And follow the Resend guide to generate an [API Key](https://resend.com/docs/introduction)
