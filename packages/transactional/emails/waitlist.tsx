@@ -10,9 +10,10 @@ import {
 import { Tailwind } from "@react-email/tailwind";
 import * as React from "react";
 
-const baseUrl = process.env.NODE_ENV
-  ? "https://vaella.glamboyosa.xyz"
-  : "http://localhost:3000";
+const baseUrl =
+  process.env.NODE_ENV === "production"
+    ? "https://vaella.glamboyosa.xyz"
+    : "http://localhost:3000";
 
 export const WaitlistWelcomeEmail = () => (
   <Html>
