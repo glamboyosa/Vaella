@@ -1,12 +1,17 @@
 import { drizzle } from "drizzle-orm/d1";
 import { createSchema, createYoga } from "graphql-yoga";
 import { Hono } from "hono";
+import { cors } from "hono/cors";
 import { Bindings } from "../types";
 import { mutations } from "./graphql/mutation";
 import { queries } from "./graphql/query";
-
 const app = new Hono<{ Bindings: Bindings }>();
-
+app.use(
+  "/api/*",
+  cors({
+    origin: ["http://localhost:3000", "https://vaella.glamboyosa.xyz"],
+  })
+);
 app.on(["POST", "GET"], "/api/graphql", async (c) =>
   createYoga<Bindings & ExecutionContext>({
     logging: c.env.LOGGING,
