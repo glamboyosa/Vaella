@@ -12,12 +12,14 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://vaella.glamboyosa.xyz"),
   twitter: {
     card: "summary_large_image",
+    title: "Vaella",
+    description: "Private Audio Rant Rooms",
     images: [
-      "/og.jpg",
       `${
         // eslint-disable-next-line turbo/no-undeclared-env-vars
-        process.env.VERCEL_URL ? "/og.jpg" : `${process.env.VERCEL_URL}/api/og`
+        !process.env.VERCEL_URL ? "/og.jpg" : `${process.env.VERCEL_URL}/api/og`
       }`,
+      "/og.jpg",
     ],
   },
   openGraph: {
@@ -26,7 +28,7 @@ export const metadata: Metadata = {
       "/og.jpg",
       `${
         // eslint-disable-next-line turbo/no-undeclared-env-vars
-        process.env.VERCEL_URL ? "/og.jpg" : `${process.env.VERCEL_URL}/api/og`
+        !process.env.VERCEL_URL ? "/og.jpg" : `${process.env.VERCEL_URL}/api/og`
       }`,
     ],
   },
