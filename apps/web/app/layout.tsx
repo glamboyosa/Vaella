@@ -10,6 +10,16 @@ export const metadata: Metadata = {
   title: "Vaella",
   description: "Private Audio Rant Rooms",
   metadataBase: new URL("https://vaella.glamboyosa.xyz"),
+  twitter: {
+    card: "summary_large_image",
+    images: [
+      "/og.jpg",
+      `${
+        // eslint-disable-next-line turbo/no-undeclared-env-vars
+        process.env.VERCEL_URL ? "/og.jpg" : `${process.env.VERCEL_URL}/api/og`
+      }`,
+    ],
+  },
   openGraph: {
     // eslint-disable-next-line turbo/no-undeclared-env-vars
     images: [
