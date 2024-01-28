@@ -36,7 +36,7 @@ const WaitlistForm = ({ children }: PropsWithChildren) => {
   return (
     <form
       action={formAction}
-      className="z-20 mt-3.5 flex w-5/6 cursor-pointer flex-col items-center justify-center space-y-2.5 md:w-3/4 *:cursor-pointer"
+      className="z-20 mt-3.5 flex w-[90%] cursor-pointer flex-col items-center justify-center space-y-2.5 md:w-3/4 *:cursor-pointer"
     >
       <input
         name="email"
