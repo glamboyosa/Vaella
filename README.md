@@ -6,7 +6,7 @@ The official monorepo for the Vaella project.
 
 It is built with:
 
-- [CloudFlare D1](<(https://developers.cloudflare.com/d1/get-started/)>)
+- [CloudFlare D1](https://developers.cloudflare.com/d1/get-started/)
 - [CloudFlare Workers](https://developers.cloudflare.com/workers/)
 - [Hono](https://hono.dev/)
 - [GraphQL Yoga](https://the-guild.dev/graphql/yoga-server)
