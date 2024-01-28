@@ -1,0 +1,16 @@
+{
+  "name": "transactional",
+  "scripts": {
+    "dev": "email dev -p 3002"
+  },
+  "workspaces": [
+    ".react-email"
+  ],
+  "devDependencies": {
+    "@types/node": "^20.5.2",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "react": "^18.2.0",
+    "typescript": "^5.2.2"
+  }
+}

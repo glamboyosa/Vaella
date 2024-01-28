@@ -1,7 +1,10 @@
 "use server";
 import { getClient } from "@/lib/apollo/apollo-client";
 import { gql } from "@apollo/client";
+import { Resend } from "resend";
+import { WaitlistWelcomeEmail } from "transactional/emails/waitlist";
 import { z } from "zod";
+
 interface SaveWaitlistEmailData {
   data: {
     saveWaitlistEmail: string;
@@ -12,6 +15,9 @@ const mutation = gql`
     saveWaitlistEmail(email: $email)
   }
 `;
+// eslint-disable-next-line turbo/no-undeclared-env-vars
+const resend = new Resend(process.env.RESEND_API_KEY);
+
 const schema = z.object({
   email: z
     .string({
@@ -36,7 +42,19 @@ const joinWaitlist = async (_: any, formData: FormData) => {
       mutation: mutation,
       variables: { email },
     })) as SaveWaitlistEmailData;
-    console.log(m);
+    await resend.emails.send({
+      from: "Osa from Vaella <osa@glamboyosa.xyz>",
+      to: ["ogbemudiatimothy.com"],
+      subject: "Thank you for joining the waitlist!",
+      react: WaitlistWelcomeEmail(),
+    });
+    return {
+      errors: {},
+      message:
+        m.data.saveWaitlistEmail === "Email exists"
+          ? "Like the sound eh? 😉"
+          : "Please check your email!",
+    };
   } catch (error: unknown) {
     const e = error as Array<{ message: string }>;
     console.log(JSON.stringify(e));
@@ -45,9 +63,5 @@ const joinWaitlist = async (_: any, formData: FormData) => {
       message: "",
     };
   }
-  return {
-    errors: {},
-    message: "Please check your email!",
-  };
 };
 export { joinWaitlist };
