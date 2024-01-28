@@ -20,7 +20,7 @@ const WaitlistForm = ({ children }: PropsWithChildren) => {
     await audio.play();
   }, []);
   // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
-useEffect(() => {
+  useEffect(() => {
     if (state.message.length > 0 && Object.keys(state.errors).length === 0) {
       toast("Added to waitlist 🚀", {
         description: state.message,
@@ -36,7 +36,7 @@ useEffect(() => {
   return (
     <form
       action={formAction}
-      className="z-20 mt-3.5 flex w-3/4 cursor-pointer flex-col items-center justify-center space-y-2.5 *:cursor-pointer"
+      className="z-20 mt-3.5 flex w-5/6 cursor-pointer flex-col items-center justify-center space-y-2.5 md:w-3/4 *:cursor-pointer"
     >
       <input
         name="email"
