@@ -5,7 +5,7 @@ import WaitlistForm from "@/components/waitlist-form";
 import { silkScreen } from "@/lib/font";
 import { cn } from "@/lib/utils";
 
-export default async function Page() {
+async function Page() {
   return (
     <div className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden rounded-md bg-black">
       <div className="absolute inset-0 h-screen w-full">
@@ -47,3 +47,5 @@ export default async function Page() {
     </div>
   );
 }
+Page.theme = "dark";
+export default Page;
