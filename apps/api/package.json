@@ -6,7 +6,9 @@
     "generate": "drizzle-kit generate:sqlite --schema=src/schema.ts",
     "up": "drizzle-kit up:sqlite --schema=src/schema.ts",
     "init": "wrangler d1 execute vaella-db --local --file=./drizzle/0000_aromatic_iron_man.sql",
-    "init_prod": "wrangler d1 execute vaella-db --file=./drizzle/0000_aromatic_iron_man.sql"
+    "init_prod": "wrangler d1 execute vaella-db --file=./drizzle/0000_aromatic_iron_man.sql",
+    "migrate": "wrangler d1 migrations apply vaella-db --local=true",
+    "migrate_prod": "wrangler d1 migrations apply vaella-db --local=false"
   },
   "dependencies": {
     "@graphql-tools/load-files": "^7.0.0",

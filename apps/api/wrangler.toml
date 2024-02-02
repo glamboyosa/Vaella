@@ -3,9 +3,6 @@ main = "src/index.ts"
 compatibility_date = "2023-10-30"
 node_compat = true
 
-[vars]
-database_id="$database_id"
-
 [env.development]
 [env.development.vars]
   database_id = "$database_id"
@@ -24,10 +21,5 @@ database_id="$database_id"
   [[env.production.d1_databases]]
   binding = "DB"
   database_name = "vaella-db"
-  database_id = "$database_id"
-
-[[d1_databases]]
-binding = "DB"
-database_name = "vaella-db"
-database_id = "$database_id"
+  database_id = ""
 

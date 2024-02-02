@@ -9,7 +9,11 @@ const app = new Hono<{ Bindings: Bindings }>();
 app.use(
   "/api/*",
   cors({
-    origin: ["http://localhost:3000", "https://vaella.glamboyosa.xyz"],
+    origin: [
+      "http://localhost:3000",
+      "https://vaella.glamboyosa.xyz",
+      " /^https?://vaella-.*-glamboyosa.vercel.app$/",
+    ],
   })
 );
 app.on(["POST", "GET"], "/api/graphql", async (c) =>
