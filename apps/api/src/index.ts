@@ -2,6 +2,7 @@ import { drizzle } from "drizzle-orm/d1";
 import { createSchema, createYoga } from "graphql-yoga";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
+import { Prettify } from "../types";
 import { Bindings } from "../types";
 import { mutations } from "./graphql/mutation";
 import { queries } from "./graphql/query";
@@ -17,7 +18,7 @@ app.use(
   })
 );
 app.on(["POST", "GET"], "/api/graphql", async (c) =>
-  createYoga<Bindings & ExecutionContext>({
+  createYoga<Prettify<Bindings & ExecutionContext>>({
     logging: c.env.LOGGING,
     // `NODE_ENV` is under `c.env`
     maskedErrors: c.env.NODE_ENV === "production",

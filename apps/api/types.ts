@@ -7,7 +7,7 @@ export type Bindings = {
   LOGGING: "debug" | "error" | "info" | "warn";
   DB: D1Database;
 };
-type Prettify<T> = T extends object ? { [K in keyof T]: T[K] } : T;
+export type Prettify<T> = T extends object ? { [K in keyof T]: T[K] } : T;
 export type Context = Prettify<
   Bindings &
     ExecutionContext &
