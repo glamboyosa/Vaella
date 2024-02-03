@@ -1,10 +1,13 @@
+"use client";
 import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
+import { useMediaQuery } from "@uidotdev/usehooks";
 
-export default async function Room() {
+export default function Room() {
+  const isSmallDevice = useMediaQuery("only screen and (max-width : 768px)");
   return (
     <div className="sm:data-osa-true md:data-osa-false min-h-screen">
       <ResizablePanelGroup
