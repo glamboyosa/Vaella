@@ -8,6 +8,7 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
+    "web_only": "turbo run build --filter=apps/web && cd apps/web && pnpm dev",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "fmt": "pnpm biome format . --write && pnpm biome check . --apply-unsafe"
