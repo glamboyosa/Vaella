@@ -8,6 +8,7 @@ import { useMediaQuery } from "@uidotdev/usehooks";
 
 export default function Room() {
   const isSmallDevice = useMediaQuery("only screen and (max-width : 768px)");
+  console.log(isSmallDevice, "small device");
   return (
     <div className="sm:data-osa-true md:data-osa-false min-h-screen">
       <ResizablePanelGroup
