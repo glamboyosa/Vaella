@@ -11,7 +11,7 @@ const Message = () => {
           <AvatarFallback>Glamboyosa</AvatarFallback>
         </Avatar>
         <p className="text-base">glamboyosa</p>
-        <p className="ml-auto text-slate-200 text-sm">1 min ago</p>
+        <p className="ml-auto text-slate-400 text-sm">1 min ago</p>
       </div>
       <div className="text-xl">Hey, i just met you</div>
     </div>

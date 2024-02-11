@@ -3,10 +3,11 @@ import { cn } from "@/lib/utils";
 import { useEffect, useRef, useState } from "react";
 
 export const Toolbar = ({ className }: { className?: string }) => {
-  const [currentEmoji, setCurrentEmoji] = useState<{
+  const [currentEmoji, setCurrentEmoji] = useState<Array<{
     emoji: string;
     id: number;
-  } | null>(null);
+    top: number;
+  }> | null>(null);
   const clearEmojiTimeout = useRef<any>(null);
 
   useEffect(() => {
@@ -24,7 +25,7 @@ export const Toolbar = ({ className }: { className?: string }) => {
     }
 
     // Set the current emoji with a unique identifier
-    setCurrentEmoji({ emoji, id: Date.now() });
+    setCurrentEmoji(Array(3).fill({ emoji, id: Date.now(), top: 40 }));
 
     // Remove the emoji after the animation duration
     clearEmojiTimeout.current = setTimeout(() => {
@@ -34,7 +35,7 @@ export const Toolbar = ({ className }: { className?: string }) => {
     // Record the reaction in the database
     // or do something else
   };
-
+  console.log(currentEmoji, "current");
   const Emoji = ({ label, emoji }: { label: string; emoji: string }) => (
     <div className="relative w-fit">
       {/* biome-ignore lint/a11y/noInteractiveElementToNoninteractiveRole: <explanation> */}
@@ -47,14 +48,20 @@ export const Toolbar = ({ className }: { className?: string }) => {
         onClick={() => handleEmojiClick(emoji)}
       >
         {emoji}
-        {currentEmoji && currentEmoji.emoji === emoji && (
-          <span
-            key={currentEmoji.id}
-            className="-top-10 absolute right-0 left-0 mx-auto animate-flyEmoji font-emoji duration-3000"
-          >
-            {currentEmoji.emoji}
-          </span>
-        )}
+        {currentEmoji &&
+          currentEmoji.length > 0 &&
+          currentEmoji.at(0)?.emoji === emoji &&
+          currentEmoji.map((emoji, idx) => (
+            <span
+              key={emoji.id}
+              className={cn(
+                "absolute right-0 left-0 z-50 mx-auto animate-flyEmoji font-emoji duration-4000"
+              )}
+              style={{ top: `-${emoji.top + (idx * 25)}px` }}
+            >
+              {emoji.emoji}
+            </span>
+          ))}
       </button>
     </div>
   );
